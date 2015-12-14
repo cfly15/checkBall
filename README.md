@@ -91,8 +91,8 @@ Players.schema = new SimpleSchema({
   }, // Feet, Inches
   build: {type: String, optional: true}, // Small, Medium, Large, Extra Large
   position: {type: [String], optional: true}, // Guard, Forward
-  playStyle: {type: [String], optional: true} // Shooter, Scorer, Passer, Rebounder, Hustler
-  selfSkillLevel: {type: Number} // self selected skill between 1 and 10 (10 being the best for rec players) should this be by each court?
+  playStyle: {type: [String], optional: true}, // Shooter, Scorer, Passer, Rebounder, Hustler
+  selfSkillLevel: {type: Number}, // self selected skill between 1 and 10 (10 being the best for rec players) should this be by each court?
   skillLevel: {type: Number} // adjusted skill based on wins and other player ratings
 });
 ```
@@ -102,7 +102,7 @@ Players.schema = new SimpleSchema({
 Courts = new Mongo.Collection('Courts');
 
 Courts.schema = new SimpleSchema({
-  id: {type: String}
+  id: {type: String},
   name: {type: String},
   location: {type: String},
   description: {type: String},
@@ -130,8 +130,9 @@ Games.schema = new SimpleSchema({
   courtId: {type: String}, // reference to the court where the game is played
   createdAt: {type: Date}, // when the 'new game' was createdAt
   endedAt: {type: Date}, // when the game's final score was input
-  team1: {type: [String]}, // array of playerIds
-  team2: {type: [String]}, // array of playerIds for
+  team1: {type: [String]}, // array of playerIds for team 1
+  team2: {type: [String]}, // array of playerIds for team 2
+  finalScore: {type: [Number]} // team 1 score then team 2 score
 });
 ```
 
@@ -146,6 +147,6 @@ Games.schema = new SimpleSchema({
 - aldeed:simple-schema - for collection validations
 - pcjpcj2:ratchet - for mobile components and page transitions styling
 - useraccounts:ratchet - for user accounts
-- sideburns - meteor templates into react (possible)
+- flow router - for routing
 
 ------
