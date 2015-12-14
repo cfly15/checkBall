@@ -1,0 +1,49 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <title>Check Ball</title>
+</head>
+
+<body>
+</body>
+
+<template name="appLayout">
+  {{> Template.dynamic template=top}}
+  <div class="content">
+    {{> Template.dynamic template=main}}
+  </div>
+  {{> Template.dynamic template=bottom}}
+</template>
+
+<template name="header">
+  <header class="bar bar-nav">
+    <h1 class="title">Check Ball</h1>
+  </header>
+</template>
+
+<template name="main">
+    Hello World!
+</template>
+
+<template name="footer">
+  <nav class="bar bar-tab">
+    <a class="tab-item active" href="#">
+      <span class="icon icon-home"></span>
+      <span class="tab-label">Home</span>
+    </a>
+    <a class="tab-item" href="#">
+      <span class="icon icon-person"></span>
+      <span class="tab-label">Profile</span>
+    </a>
+    {{#if isInRole 'admin'}}
+    <a class="tab-item" href="#">
+      <span class="icon icon-gear"></span>
+      <span class="tab-label">Settings</span>
+    </a>
+    {{/if}}
+    <a class="tab-item" href="#">
+      <span class="icon icon-close"></span>
+      <span class="tab-label">Log Out</span>
+    </a>
+  </nav>
+</template>
